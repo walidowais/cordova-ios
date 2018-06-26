@@ -221,7 +221,7 @@ Podfile.prototype.install = function (requirementsCheckerFunction) {
                 events.emit('verbose', toolOptions.ignoreMessage);
                 return Q.resolve();
             } else {
-                return superspawn.spawn('pod', ['install', '--verbose'], opts)
+                return superspawn.spawn('bundle', ['exec', 'pod', 'install', '--verbose'], opts)
                     .progress(function (stdio) {
                         if (stdio.stderr) { console.error(stdio.stderr); }
                         if (stdio.stdout) {
